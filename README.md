@@ -57,15 +57,33 @@ Then write normally: `\section`, `\subsection`, `\paragraph`, `figure`,
 `table` (with `booktabs`), `equation`, and `\cite{...}`. Cross-reference with
 `cleveref`'s `\Cref{...}`.
 
+## Header logo
+
+The first page shows a logo in the header (with a rule beneath it, matching the
+footer rule). To use the official KAIST AI logo, drop an image file at:
+
+```
+figures/kaist-ai-logo.pdf      # preferred (vector)
+figures/kaist-ai-logo.png      # fallback
+```
+
+It is picked up automatically. With no file present, a typeset "KAIST AI"
+wordmark is shown as a placeholder. To use a different logo or position, override
+in your preamble:
+
+```latex
+\renewcommand{\headerlogo}{\includegraphics[height=0.4in]{figures/mylogo.pdf}}
+```
+
 ## Customization
 
 All styling lives in `davian.cls`:
 
 - **Accent color** — edit the `kaistblue` / `kaistbluedark` definitions.
+- **Abstract box shade** — edit the `abstractbg` color.
 - **Heading font** — swap the `montserrat` package line for `FiraSans`.
-- **Margins** — adjust the `geometry` options.
-- **Logos** — add `\includegraphics` of a lab/university logo into the
-  `\maketitle` block in the class, or in the title area of `main.tex`.
+- **Margins / header height** — adjust the `geometry` options.
+- **Header/footer rules** — edit the `davianmain` / `davianfirst` page styles.
 
 ## License
 

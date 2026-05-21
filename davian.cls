@@ -10,14 +10,16 @@
 \LoadClass[10pt]{article}
 
 %% ---- page geometry ----
-\RequirePackage[letterpaper,margin=1.05in,headheight=15pt]{geometry}
+\RequirePackage[letterpaper,margin=1.05in,headheight=30pt,headsep=14pt,
+                footskip=26pt]{geometry}
 \widowpenalty=10000
 \clubpenalty=10000
 
-%% ---- accent color (KAIST deep blue) ----
+%% ---- accent color (KAIST deep blue) + abstract grey ----
 \RequirePackage{xcolor}
 \definecolor{kaistblue}{HTML}{004191}
 \definecolor{kaistbluedark}{HTML}{002B5F}
+\definecolor{abstractbg}{HTML}{EFF1F4}
 
 %% ---- math packages (must precede newtxmath; amssymb before newtxmath
 %%      avoids the \Bbbk "already defined" clash) ----
@@ -38,6 +40,7 @@
 \RequirePackage{booktabs}
 \RequirePackage{multirow}
 \RequirePackage{array}
+\RequirePackage[most]{tcolorbox}
 
 %% ---- lists & captions ----
 \RequirePackage[shortlabels]{enumitem}
@@ -63,18 +66,44 @@
 \titlespacing*{\subsubsection}{0pt}{1.6ex plus .4ex minus .2ex}{0.6ex plus .2ex}
 \titlespacing*{\paragraph}{0pt}{1.2ex plus .3ex}{0.8em}
 
-%% ---- running header / footer ----
+%% ---- first-page header logo ----
+%% Drop an official asset at figures/kaist-ai-logo.{pdf,png} to use it;
+%% otherwise a typeset wordmark is shown. Override with \renewcommand{\headerlogo}.
+\newcommand{\headerlogo}{%
+  \IfFileExists{figures/kaist-ai-logo.pdf}
+    {\includegraphics[height=0.36in]{figures/kaist-ai-logo.pdf}}%
+    {\IfFileExists{figures/kaist-ai-logo.png}
+      {\includegraphics[height=0.36in]{figures/kaist-ai-logo.png}}%
+      {\sffamily\bfseries\large\color{kaistblue}KAIST\,\color{kaistbluedark}AI}}%
+}
+
+%% ---- running header / footer (thin KAIST-blue rules) ----
 \RequirePackage{fancyhdr}
 \newcommand{\@runningtitle}{}
 \newcommand{\runningtitle}[1]{\renewcommand{\@runningtitle}{#1}}
-\fancyhf{}
-\fancyhead[R]{\sffamily\footnotesize\color{kaistbluedark}\@runningtitle}
-\fancyfoot[C]{\sffamily\footnotesize\thepage}
-\renewcommand{\headrulewidth}{0pt}
-\renewcommand{\footrulewidth}{0pt}
-\pagestyle{fancy}
-\fancypagestyle{plain}{\fancyhf{}\fancyfoot[C]{\sffamily\footnotesize\thepage}%
-  \renewcommand{\headrulewidth}{0pt}}
+
+% running pages: short title in header, page number in footer, rules above/below
+\fancypagestyle{davianmain}{%
+  \fancyhf{}%
+  \fancyhead[L]{\sffamily\footnotesize\color{kaistbluedark}\@runningtitle}%
+  \fancyfoot[C]{\sffamily\footnotesize\thepage}%
+  \renewcommand{\headrule}{\color{kaistblue}\hrule height 0.6pt}%
+  \renewcommand{\footrule}{\color{kaistblue}\hrule height 0.6pt}%
+  \renewcommand{\headrulewidth}{0.6pt}%
+  \renewcommand{\footrulewidth}{0.6pt}%
+}
+% first page: logo in header, same rules
+\fancypagestyle{davianfirst}{%
+  \fancyhf{}%
+  \fancyhead[L]{\headerlogo}%
+  \fancyfoot[C]{\sffamily\footnotesize\thepage}%
+  \renewcommand{\headrule}{\color{kaistblue}\hrule height 0.6pt}%
+  \renewcommand{\footrule}{\color{kaistblue}\hrule height 0.6pt}%
+  \renewcommand{\headrulewidth}{0.6pt}%
+  \renewcommand{\footrulewidth}{0.6pt}%
+}
+\pagestyle{davianmain}
+\let\ps@plain\ps@davianmain
 
 %% ---- title-block metadata macros (with DAVIAN / KAIST AI defaults) ----
 \newcommand{\@authors}{Author Name\affmark{1}}
@@ -89,42 +118,35 @@
 %% superscript affiliation marker
 \newcommand{\affmark}[1]{\textsuperscript{#1}}
 
-%% ---- title rendering ----
+%% ---- title rendering (left aligned) ----
 \renewcommand{\maketitle}{%
-  \thispagestyle{plain}%
-  \begin{center}
+  \thispagestyle{davianfirst}%
+  \begin{flushleft}
     {\sffamily\bfseries\fontsize{19}{23}\selectfont\color{kaistbluedark}\@title\par}
-    \vskip 1.0em
-    {\normalsize\@authors\par}
-    \vskip 0.5em
-    {\small\itshape\@affiliations\par}
+    \vskip 0.9em
+    {\normalsize\raggedright\@authors\par}
+    \vskip 0.45em
+    {\small\itshape\raggedright\@affiliations\par}
     \ifx\@correspondence\empty\else
-      \vskip 0.35em{\footnotesize\@correspondence\par}\fi
+      \vskip 0.3em{\footnotesize\@correspondence\par}\fi
     \ifx\@contributions\empty\else
-      \vskip 0.35em{\footnotesize\color{black!70}\@contributions\par}\fi
-  \end{center}
-  \vskip 0.4em
-  {\color{kaistblue}\hrule height 0.8pt}%
-  \vskip 1.2em
+      \vskip 0.3em{\footnotesize\color{black!70}\@contributions\par}\fi
+  \end{flushleft}
+  \vskip 0.9em
 }
 
-%% ---- abstract: centered sans heading + narrowed body ----
+%% ---- abstract: light grey box with sans heading (matches reference) ----
 \renewenvironment{abstract}{%
-  \begin{center}{\sffamily\bfseries\color{kaistblue}\abstractname}\end{center}
-  \vskip -0.2em
-  \par\begingroup\leftskip=0.28in\rightskip=0.28in\small\noindent\ignorespaces
+  \begin{tcolorbox}[
+    breakable, enhanced, colback=abstractbg, colframe=abstractbg,
+    boxrule=0pt, arc=2pt, left=14pt, right=14pt, top=11pt, bottom=11pt,
+    width=\textwidth, before skip=4pt, after skip=16pt]%
+  {\sffamily\bfseries\color{kaistbluedark}\abstractname}\par
+  \vskip 4pt
+  \small\noindent\ignorespaces
 }{%
-  \par\endgroup
-  \vskip 0.6em
-  {\color{kaistblue!40!white}\hrule height 0.4pt}%
-  \vskip 1.0em
+  \end{tcolorbox}%
 }
-
-%% ---- keywords (optional) ----
-\providecommand{\keywords}[1]{%
-  \vskip 0.3em\noindent
-  {\sffamily\bfseries\footnotesize\color{kaistbluedark}Keywords\, }%
-  \begingroup\def\and{\,\textperiodcentered\, }{\footnotesize #1}\par\endgroup}
 
 %% ---- bibliography (natbib, numeric & compressed) ----
 \RequirePackage[numbers,sort&compress]{natbib}
