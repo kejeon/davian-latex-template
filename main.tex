@@ -1,0 +1,109 @@
+\documentclass{davian}
+
+%% --- extra packages for this document (the class already loads the essentials) ---
+\usepackage{tikz}
+\usepackage{lipsum} % filler text for the demo; remove in real papers
+
+\runningtitle{A DAVIAN Lab Preprint}
+
+\title{Draft Less, Verify More:\\ A DAVIAN Lab Preprint Template}
+
+\authors{%
+  Kang Eun Jeon\affmark{1,*}\quad
+  Second Author\affmark{1}\quad
+  Third Author\affmark{1,2}\quad
+  Jaegul Choo\affmark{1,\dag}%
+}
+\affiliations{%
+  \affmark{1}DAVIAN Lab, KAIST AI \qquad
+  \affmark{2}Collaborating Institution%
+}
+\contributions{%
+  \affmark{*}Equal contribution.\quad
+  \affmark{\dag}Corresponding author.%
+}
+\correspondence{\texttt{eekejeon@gmail.com}}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+This document is both a usage example and a visual showcase of the DAVIAN Lab
+LaTeX template. It demonstrates the title block with numbered affiliations and
+contribution markers, the section heading style, math, figures, tables, and
+citations. Replace this abstract with your own and start writing. The template
+targets single-column arXiv-style preprints and technical reports.
+\end{abstract}
+
+\keywords{template \and preprint \and KAIST AI \and DAVIAN}
+
+\section{Introduction}
+\label{sec:intro}
+Welcome to the DAVIAN Lab preprint template. The body text is set in XCharter,
+section headings in Montserrat, and accents use the KAIST deep blue. You can
+cite work in the usual way~\cite{vaswani2017attention,he2016deep} and cross
+reference sections with \texttt{cleveref}, e.g.\ \Cref{sec:method}.
+
+\lipsum[1]
+
+\section{Method}
+\label{sec:method}
+Inline math such as $\mathbf{y} = \mathbf{W}\mathbf{x} + \mathbf{b}$ uses
+Charter-keyed glyphs so it blends with the body. Display math:
+\begin{equation}
+  \label{eq:softmax}
+  \mathrm{softmax}(\mathbf{z})_i = \frac{e^{z_i}}{\sum_{j=1}^{K} e^{z_j}},
+  \qquad i = 1,\dots,K.
+\end{equation}
+
+\subsection{A subsection}
+\lipsum[2]
+
+\paragraph{A run-in paragraph heading.}
+Paragraph headings are set in Montserrat bold and run into the text.
+
+\section{Experiments}
+\label{sec:exp}
+
+\Cref{fig:placeholder} shows a placeholder figure and \Cref{tab:results}
+a results table.
+
+\begin{figure}[t]
+  \centering
+  \begin{tikzpicture}
+    \draw[kaistblue, very thick, rounded corners]
+      (0,0) rectangle (10,3.2);
+    \node[align=center, text=kaistbluedark, font=\sffamily\large]
+      at (5,1.6) {Figure placeholder\\[2pt]
+      \footnotesize replace with \texttt{\textbackslash includegraphics}};
+  \end{tikzpicture}
+  \caption{A placeholder figure drawn with Ti\emph{k}Z so the template compiles
+  with no external image files. Swap in your own graphic.}
+  \label{fig:placeholder}
+\end{figure}
+
+\begin{table}[t]
+  \centering
+  \caption{Example results table using \texttt{booktabs} rules.}
+  \label{tab:results}
+  \begin{tabular}{lcc}
+    \toprule
+    Method & Accuracy ($\uparrow$) & Latency (ms, $\downarrow$) \\
+    \midrule
+    Baseline        & 71.2 & 18.4 \\
+    + Improvement A  & 74.8 & 17.9 \\
+    \textbf{Ours}    & \textbf{78.5} & \textbf{15.1} \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\lipsum[3]
+
+\section{Conclusion}
+We provided a clean, lab-branded single-column template. Edit \texttt{main.tex}
+and \texttt{references.bib} to start your own paper.
+
+\bibliographystyle{plainnat}
+\bibliography{references}
+
+\end{document}
