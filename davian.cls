@@ -79,11 +79,11 @@
 }
 \newcommand{\davianlogo}{%
   \IfFileExists{figures/davian-logo.pdf}
-    {\includegraphics[width=1.35in]{figures/davian-logo.pdf}}%
+    {\includegraphics[height=0.36in]{figures/davian-logo.pdf}}%
     {\IfFileExists{ref/final_logo.pdf}
-      {\includegraphics[page=2,width=1.35in]{ref/final_logo.pdf}}%
+      {\includegraphics[page=3,trim={5pt 0pt 5pt 115pt},clip,height=0.36in]{ref/final_logo.pdf}}%
       {\IfFileExists{figures/davian-logo.png}
-        {\includegraphics[width=1.35in]{figures/davian-logo.png}}%
+        {\includegraphics[height=0.36in]{figures/davian-logo.png}}%
         {\sffamily\bfseries\large\color{kaistbluedark}DAVIAN}}}%
 }
 %% kept for backward compat
