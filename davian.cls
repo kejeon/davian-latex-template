@@ -105,8 +105,8 @@
 % first page: DAVIAN logo left, KAIST AI logo right
 \fancypagestyle{davianfirst}{%
   \fancyhf{}%
-  \fancyhead[L]{\davianlogo}%
-  \fancyhead[R]{\kaistailogo}%
+  \fancyhead[L]{\kaistailogo}%
+  \fancyhead[R]{\davianlogo}%
   \fancyfoot[C]{\sffamily\footnotesize\thepage}%
   \renewcommand{\headrule}{\color{black}\hrule height 0.6pt}%
   \renewcommand{\footrule}{\color{black}\hrule height 0.6pt}%
