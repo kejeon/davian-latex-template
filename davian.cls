@@ -79,11 +79,11 @@
 }
 \newcommand{\davianlogo}{%
   \IfFileExists{figures/davian-logo.pdf}
-    {\includegraphics[height=0.44in]{figures/davian-logo.pdf}}%
+    {\includegraphics[height=0.40in]{figures/davian-logo.pdf}}%
     {\IfFileExists{figures/davian-logo.png}
-      {\includegraphics[height=0.44in]{figures/davian-logo.png}}%
+      {\includegraphics[height=0.40in]{figures/davian-logo.png}}%
       {\IfFileExists{ref/final_logo.pdf}
-        {\includegraphics[page=3,trim={5pt 0pt 5pt 115pt},clip,height=0.44in]{ref/final_logo.pdf}}%
+        {\includegraphics[page=3,trim={5pt 0pt 5pt 115pt},clip,height=0.40in]{ref/final_logo.pdf}}%
         {\sffamily\bfseries\large\color{kaistbluedark}DAVIAN}}}%
 }
 %% kept for backward compat
@@ -136,16 +136,22 @@
   \thispagestyle{davianfirst}%
   \begin{flushleft}
     {\sffamily\bfseries\fontsize{19}{23}\selectfont\color{kaistbluedark}\@title\par}
-    \vskip 0.9em
-    {\normalsize\raggedright\@authors\par}
-    \vskip 0.45em
-    {\small\itshape\raggedright\@affiliations\par}
+    \vskip 0.55em
+    {\normalsize\bfseries\raggedright\@authors\par}
+    \vskip 0.2em
+    {\small\raggedright\@affiliations\par}
     \ifx\@correspondence\empty\else
-      \vskip 0.3em{\footnotesize\@correspondence\par}\fi
+      \vskip 0.15em{\footnotesize\@correspondence\par}\fi
     \ifx\@contributions\empty\else
-      \vskip 0.3em{\footnotesize\color{black!70}\@contributions\par}\fi
+      \vskip 0.15em{\footnotesize\color{black!70}\@contributions\par}\fi
   \end{flushleft}
-  \vskip 0.9em
+  \vskip 0.7em
+}
+
+%% ---- keywords (call inside abstract environment) ----
+\newcommand{\keywords}[1]{%
+  \par\vskip 5pt
+  {\sffamily\bfseries\small\color{kaistbluedark}Keywords:\enspace}{\small #1}%
 }
 
 %% ---- abstract: light grey box with sans heading (matches reference) ----
