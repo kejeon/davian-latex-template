@@ -80,9 +80,11 @@
 \newcommand{\davianlogo}{%
   \IfFileExists{figures/davian-logo.pdf}
     {\includegraphics[height=0.36in]{figures/davian-logo.pdf}}%
-    {\IfFileExists{figures/davian-logo.png}
-      {\includegraphics[height=0.36in]{figures/davian-logo.png}}%
-      {\sffamily\bfseries\large\color{kaistbluedark}DAVIAN}}%
+    {\IfFileExists{ref/final_logo.pdf}
+      {\includegraphics[page=2,height=0.36in]{ref/final_logo.pdf}}%
+      {\IfFileExists{figures/davian-logo.png}
+        {\includegraphics[height=0.36in]{figures/davian-logo.png}}%
+        {\sffamily\bfseries\large\color{kaistbluedark}DAVIAN}}}%
 }
 %% kept for backward compat
 \newcommand{\headerlogo}{\kaistailogo}
