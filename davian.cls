@@ -10,7 +10,7 @@
 \LoadClass[10pt]{article}
 
 %% ---- page geometry ----
-\RequirePackage[letterpaper,margin=1.05in,headheight=30pt,headsep=14pt,
+\RequirePackage[letterpaper,margin=1.05in,headheight=40pt,headsep=12pt,
                 footskip=26pt]{geometry}
 \widowpenalty=10000
 \clubpenalty=10000
@@ -54,11 +54,11 @@
 %% ---- section headings: Montserrat, accent color, numbered ----
 \RequirePackage{titlesec}
 \titleformat{\section}
-  {\sffamily\large\bfseries\color{kaistblue}}{\thesection}{0.6em}{}
+  {\sffamily\large\bfseries\color{kaistblue}}{\thesection.}{0.6em}{}
 \titleformat{\subsection}
-  {\sffamily\normalsize\bfseries\color{kaistbluedark}}{\thesubsection}{0.5em}{}
+  {\sffamily\normalsize\bfseries\color{kaistbluedark}}{\thesubsection.}{0.5em}{}
 \titleformat{\subsubsection}
-  {\sffamily\normalsize\bfseries}{\thesubsubsection}{0.5em}{}
+  {\sffamily\normalsize\bfseries}{\thesubsubsection.}{0.5em}{}
 \titleformat{\paragraph}[runin]
   {\sffamily\bfseries}{}{0em}{}[.]
 \titlespacing*{\section}{0pt}{2.4ex plus .6ex minus .2ex}{1.2ex plus .2ex}
@@ -66,16 +66,26 @@
 \titlespacing*{\subsubsection}{0pt}{1.6ex plus .4ex minus .2ex}{0.6ex plus .2ex}
 \titlespacing*{\paragraph}{0pt}{1.2ex plus .3ex}{0.8em}
 
-%% ---- first-page header logo ----
-%% Drop an official asset at figures/kaist-ai-logo.{pdf,png} to use it;
-%% otherwise a typeset wordmark is shown. Override with \renewcommand{\headerlogo}.
-\newcommand{\headerlogo}{%
+%% ---- header logos ----
+%% Drop official assets at figures/kaist-ai-logo.{pdf,png} and
+%% figures/davian-logo.{pdf,png} to use real images; otherwise a typeset
+%% fallback is shown. Override with \renewcommand{\kaistailogo}{...} etc.
+\newcommand{\kaistailogo}{%
   \IfFileExists{figures/kaist-ai-logo.pdf}
     {\includegraphics[height=0.36in]{figures/kaist-ai-logo.pdf}}%
     {\IfFileExists{figures/kaist-ai-logo.png}
       {\includegraphics[height=0.36in]{figures/kaist-ai-logo.png}}%
       {\sffamily\bfseries\large\color{kaistblue}KAIST\,\color{kaistbluedark}AI}}%
 }
+\newcommand{\davianlogo}{%
+  \IfFileExists{figures/davian-logo.pdf}
+    {\includegraphics[height=0.36in]{figures/davian-logo.pdf}}%
+    {\IfFileExists{figures/davian-logo.png}
+      {\includegraphics[height=0.36in]{figures/davian-logo.png}}%
+      {\sffamily\bfseries\large\color{kaistbluedark}DAVIAN}}%
+}
+%% kept for backward compat
+\newcommand{\headerlogo}{\kaistailogo}
 
 %% ---- running header / footer (thin KAIST-blue rules) ----
 \RequirePackage{fancyhdr}
@@ -87,18 +97,19 @@
   \fancyhf{}%
   \fancyhead[L]{\sffamily\footnotesize\color{kaistbluedark}\@runningtitle}%
   \fancyfoot[C]{\sffamily\footnotesize\thepage}%
-  \renewcommand{\headrule}{\color{kaistblue}\hrule height 0.6pt}%
-  \renewcommand{\footrule}{\color{kaistblue}\hrule height 0.6pt}%
+  \renewcommand{\headrule}{\color{black}\hrule height 0.6pt}%
+  \renewcommand{\footrule}{\color{black}\hrule height 0.6pt}%
   \renewcommand{\headrulewidth}{0.6pt}%
   \renewcommand{\footrulewidth}{0.6pt}%
 }
-% first page: logo in header, same rules
+% first page: DAVIAN logo left, KAIST AI logo right
 \fancypagestyle{davianfirst}{%
   \fancyhf{}%
-  \fancyhead[L]{\headerlogo}%
+  \fancyhead[L]{\davianlogo}%
+  \fancyhead[R]{\kaistailogo}%
   \fancyfoot[C]{\sffamily\footnotesize\thepage}%
-  \renewcommand{\headrule}{\color{kaistblue}\hrule height 0.6pt}%
-  \renewcommand{\footrule}{\color{kaistblue}\hrule height 0.6pt}%
+  \renewcommand{\headrule}{\color{black}\hrule height 0.6pt}%
+  \renewcommand{\footrule}{\color{black}\hrule height 0.6pt}%
   \renewcommand{\headrulewidth}{0.6pt}%
   \renewcommand{\footrulewidth}{0.6pt}%
 }
