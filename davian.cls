@@ -150,12 +150,12 @@
     {\sffamily\bfseries\fontsize{19}{23}\selectfont\color{kaistbluedark}\@title\par}
     \vskip 1em
     {\normalsize\bfseries\raggedright\@authors\par}
-    \vskip 0em
+    \vskip 0.25em
     {\small\raggedright\@affiliations\par}
     \ifx\@correspondence\empty\else
-      \vskip 0em{\small\@correspondence\par}\fi
+      \vskip 0.25em{\small\@correspondence\par}\fi
     \ifx\@contributions\empty\else
-      \vskip 0em{\footnotesize\color{black!70}\@contributions\par}\fi
+      \vskip 0.25em{\footnotesize\color{black!70}\@contributions\par}\fi
   \end{flushleft}
   \vskip 0.8em
 }
