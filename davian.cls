@@ -70,6 +70,9 @@
 %% Drop official assets at assets/kaist-ai-logo.{pdf,png} and
 %% assets/davian-logo.{pdf,png} to use real images; otherwise a typeset
 %% fallback is shown. Override with \renewcommand{\kaistailogo}{...} etc.
+%% \headlogodrop lowers both logos toward the header rule (so they sit flush
+%% rather than floating above it); tune to taste.
+\newlength{\headlogodrop}\setlength{\headlogodrop}{3pt}
 \newcommand{\kaistailogo}{%
   \IfFileExists{assets/kaist-ai-logo.pdf}
     {\includegraphics[height=0.36in]{assets/kaist-ai-logo.pdf}}%
@@ -79,9 +82,9 @@
 }
 \newcommand{\davianlogo}{%
   \IfFileExists{assets/davian-logo.pdf}
-    {\includegraphics[height=0.35in]{assets/davian-logo.pdf}}%
+    {\includegraphics[height=0.38in]{assets/davian-logo.pdf}}%
     {\IfFileExists{assets/davian-logo.png}
-      {\includegraphics[height=0.35in]{assets/davian-logo.png}}%
+      {\includegraphics[height=0.38in]{assets/davian-logo.png}}%
       {\sffamily\bfseries\large\color{kaistbluedark}DAVIAN}}%
 }
 %% kept for backward compat
@@ -108,8 +111,8 @@
 % first page: DAVIAN logo left, KAIST AI logo right
 \fancypagestyle{davianfirst}{%
   \fancyhf{}%
-  \fancyhead[L]{\kaistailogo}%
-  \fancyhead[R]{\davianlogo}%
+  \fancyhead[L]{\raisebox{-\headlogodrop}{\kaistailogo}}%
+  \fancyhead[R]{\raisebox{-\headlogodrop}{\davianlogo}}%
   \fancyfoot[C]{\sffamily\footnotesize\thepage}%
   \renewcommand{\headrule}{\color{black}\hrule height 0.6pt}%
   \renewcommand{\footrule}{\color{black}\hrule height 0.6pt}%
