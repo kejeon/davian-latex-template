@@ -82,9 +82,9 @@
 }
 \newcommand{\davianlogo}{%
   \IfFileExists{assets/davian-logo.pdf}
-    {\includegraphics[height=0.38in]{assets/davian-logo.pdf}}%
+    {\includegraphics[height=0.40in]{assets/davian-logo.pdf}}%
     {\IfFileExists{assets/davian-logo.png}
-      {\includegraphics[height=0.38in]{assets/davian-logo.png}}%
+      {\includegraphics[height=0.40in]{assets/davian-logo.png}}%
       {\sffamily\bfseries\large\color{kaistbluedark}DAVIAN}}%
 }
 %% kept for backward compat
