@@ -93,11 +93,14 @@
 \RequirePackage{fancyhdr}
 \newcommand{\@runningtitle}{}
 \newcommand{\runningtitle}[1]{\renewcommand{\@runningtitle}{#1}}
+\newcommand{\@shortauthor}{}
+\newcommand{\shortauthor}[1]{\renewcommand{\@shortauthor}{#1}}
 
-% running pages: short title in header, page number in footer, rules above/below
+% running pages: "First Author et al. · Short Title" in header
 \fancypagestyle{davianmain}{%
   \fancyhf{}%
-  \fancyhead[L]{\sffamily\footnotesize\color{kaistbluedark}\@runningtitle}%
+  \fancyhead[L]{\sffamily\footnotesize\color{kaistbluedark}%
+    \@shortauthor\ifx\@shortauthor\empty\else\enspace·\enspace\fi\@runningtitle}%
   \fancyfoot[C]{\sffamily\footnotesize\thepage}%
   \renewcommand{\headrule}{\color{black}\hrule height 0.6pt}%
   \renewcommand{\footrule}{\color{black}\hrule height 0.6pt}%
@@ -131,10 +134,9 @@
 %% superscript affiliation marker
 \newcommand{\affmark}[1]{\textsuperscript{#1}}
 
-%% email helper: monospace + mailto hyperlink, size-compensated for scaled=0.90 Inconsolata
-%% (must be used after hyperref is loaded, so defined late but usable in \correspondence{})
+%% email helper: italic serif + mailto hyperlink
 \AtBeginDocument{%
-  \newcommand{\email}[1]{\href{mailto:#1}{\texttt{#1}}}%
+  \newcommand{\email}[1]{\href{mailto:#1}{\textit{#1}}}%
 }
 
 %% ---- title rendering (left aligned) ----
@@ -147,7 +149,7 @@
     \vskip 0.08em
     {\small\raggedright\@affiliations\par}
     \ifx\@correspondence\empty\else
-      \vskip 0.05em{\normalsize\@correspondence\par}\fi
+      \vskip 0.05em{\small\@correspondence\par}\fi
     \ifx\@contributions\empty\else
       \vskip 0.05em{\footnotesize\color{black!70}\@contributions\par}\fi
   \end{flushleft}
