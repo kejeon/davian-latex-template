@@ -146,6 +146,7 @@
 \renewcommand{\maketitle}{%
   \thispagestyle{davianfirst}%
   \begin{flushleft}
+    \setlength{\parskip}{0pt}% don't let the body parskip inflate the \vskip gaps below
     {\sffamily\bfseries\fontsize{19}{23}\selectfont\color{kaistbluedark}\@title\par}
     \vskip 1em
     {\normalsize\bfseries\raggedright\@authors\par}
