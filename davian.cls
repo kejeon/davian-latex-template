@@ -70,8 +70,8 @@
 %% Drop official assets at assets/kaist-ai-logo.{pdf,png} and
 %% assets/davian-logo.{pdf,png} to use real images; otherwise a typeset
 %% fallback is shown. Override with \renewcommand{\kaistailogo}{...} etc.
-%% \headlogodrop lowers both logos toward the header rule (so they sit flush
-%% rather than floating above it); tune to taste.
+%% \headlogodrop lowers the DAVIAN logo toward the header rule (the vector
+%% wordmark has internal bottom padding that makes it float); tune to taste.
 \newlength{\headlogodrop}\setlength{\headlogodrop}{3pt}
 \newcommand{\kaistailogo}{%
   \IfFileExists{assets/kaist-ai-logo.pdf}
@@ -111,7 +111,7 @@
 % first page: DAVIAN logo left, KAIST AI logo right
 \fancypagestyle{davianfirst}{%
   \fancyhf{}%
-  \fancyhead[L]{\raisebox{-\headlogodrop}{\kaistailogo}}%
+  \fancyhead[L]{\kaistailogo}%
   \fancyhead[R]{\raisebox{-\headlogodrop}{\davianlogo}}%
   \fancyfoot[C]{\sffamily\footnotesize\thepage}%
   \renewcommand{\headrule}{\color{black}\hrule height 0.6pt}%
