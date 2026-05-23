@@ -1,0 +1,9 @@
+%% libs.tex — document-level packages.
+%% davian.cls already loads the essentials (fonts, math, graphicx, booktabs,
+%% tcolorbox, hyperref, cleveref, natbib). Add only what THIS paper needs here.
+
+\usepackage{tikz}              % used by the placeholder figure; remove if unused
+\usepackage{lipsum}            % filler text for the demo; remove in real papers
+
+%% Resolve graphics by directory so \includegraphics needs no path prefix.
+\graphicspath{{figs/}{tbls/}{assets/}}

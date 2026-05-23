@@ -1,0 +1,20 @@
+%% fig_comm.tex — figure definitions, one \newcommand per figure.
+%% Call the command (e.g. \figPlaceholder) at the point in the section where
+%% the float should be anchored. This keeps section files readable and makes
+%% figures easy to reorder or comment out.
+
+\newcommand{\figPlaceholder}{%
+  \begin{figure}[t]
+    \centering
+    \begin{tikzpicture}
+      \draw[kaistblue, very thick, rounded corners]
+        (0,0) rectangle (10,3.2);
+      \node[align=center, text=kaistbluedark, font=\sffamily\large]
+        at (5,1.6) {Figure placeholder\\[2pt]
+        \footnotesize replace with \texttt{\textbackslash includegraphics\{figs/...\}}};
+    \end{tikzpicture}
+    \caption{A placeholder figure drawn with Ti\emph{k}Z so the template compiles
+    with no external image files. Swap in your own graphic from \texttt{figs/}.}
+    \label{fig:placeholder}
+  \end{figure}%
+}

@@ -67,21 +67,21 @@
 \titlespacing*{\paragraph}{0pt}{1.2ex plus .3ex}{0.8em}
 
 %% ---- header logos ----
-%% Drop official assets at figures/kaist-ai-logo.{pdf,png} and
-%% figures/davian-logo.{pdf,png} to use real images; otherwise a typeset
+%% Drop official assets at assets/kaist-ai-logo.{pdf,png} and
+%% assets/davian-logo.{pdf,png} to use real images; otherwise a typeset
 %% fallback is shown. Override with \renewcommand{\kaistailogo}{...} etc.
 \newcommand{\kaistailogo}{%
-  \IfFileExists{figures/kaist-ai-logo.pdf}
-    {\includegraphics[height=0.36in]{figures/kaist-ai-logo.pdf}}%
-    {\IfFileExists{figures/kaist-ai-logo.png}
-      {\includegraphics[height=0.36in]{figures/kaist-ai-logo.png}}%
+  \IfFileExists{assets/kaist-ai-logo.pdf}
+    {\includegraphics[height=0.36in]{assets/kaist-ai-logo.pdf}}%
+    {\IfFileExists{assets/kaist-ai-logo.png}
+      {\includegraphics[height=0.36in]{assets/kaist-ai-logo.png}}%
       {\sffamily\bfseries\large\color{kaistblue}KAIST\,\color{kaistbluedark}AI}}%
 }
 \newcommand{\davianlogo}{%
-  \IfFileExists{figures/davian-logo.pdf}
-    {\includegraphics[height=0.35in]{figures/davian-logo.pdf}}%
-    {\IfFileExists{figures/davian-logo.png}
-      {\includegraphics[height=0.35in]{figures/davian-logo.png}}%
+  \IfFileExists{assets/davian-logo.pdf}
+    {\includegraphics[height=0.35in]{assets/davian-logo.pdf}}%
+    {\IfFileExists{assets/davian-logo.png}
+      {\includegraphics[height=0.35in]{assets/davian-logo.png}}%
       {\sffamily\bfseries\large\color{kaistbluedark}DAVIAN}}%
 }
 %% kept for backward compat

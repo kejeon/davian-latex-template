@@ -1,4 +1,7 @@
+# Build directory (latexmk $out_dir)
 build/
+
+# LaTeX build artifacts
 *.aux
 *.log
 *.out
@@ -8,3 +11,13 @@ build/
 *.fls
 *.fdb_latexmk
 *.toc
+
+# Ignore stray PDFs (e.g. compiled output left in the root), but keep
+# figure/table/brand assets that are intentionally version-controlled.
+*.pdf
+!figs/*.pdf
+!tbls/*.pdf
+!assets/*.pdf
+
+# OS metadata
+.DS_Store

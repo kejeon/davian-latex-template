@@ -1,0 +1,19 @@
+%% tbl_comm.tex — table definitions, one \newcommand per table.
+%% Same pattern as fig_comm.tex: define here, call in the section body.
+
+\newcommand{\tblResults}{%
+  \begin{table}[t]
+    \centering
+    \caption{Example results table using \texttt{booktabs} rules.}
+    \label{tab:results}
+    \begin{tabular}{lcc}
+      \toprule
+      Method & Accuracy ($\uparrow$) & Latency (ms, $\downarrow$) \\
+      \midrule
+      Baseline        & 71.2 & 18.4 \\
+      + Improvement A  & 74.8 & 17.9 \\
+      \textbf{Ours}    & \textbf{78.5} & \textbf{15.1} \\
+      \bottomrule
+    \end{tabular}
+  \end{table}%
+}

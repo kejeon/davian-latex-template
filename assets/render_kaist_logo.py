@@ -83,7 +83,7 @@ ax.set_aspect('equal'); ax.axis('off')
 fig.patch.set_alpha(0); ax.patch.set_alpha(0)
 ax.set_position([0,0,1,1])
 
-tree = ET.parse('figures/kaist-ai-logo.svg')
+tree = ET.parse('assets/kaist-ai-logo.svg')
 root = tree.getroot()
 
 for el in root.iter():
@@ -109,6 +109,6 @@ for el in root.iter():
             except Exception as e:
                 print(f"path err: {e}")
 
-plt.savefig('figures/kaist-ai-logo.png', dpi=300, bbox_inches='tight',
+plt.savefig('assets/kaist-ai-logo.png', dpi=300, bbox_inches='tight',
             pad_inches=0.02, transparent=True, facecolor='none')
-print("Saved figures/kaist-ai-logo.png")
+print("Saved assets/kaist-ai-logo.png")

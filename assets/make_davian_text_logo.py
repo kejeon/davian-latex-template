@@ -38,5 +38,5 @@ TARGET_H = 400   # taller → more resolution for crisp text at small render siz
 w = max(1, round(text_trim.width * TARGET_H / text_trim.height))
 out = text_trim.resize((w, TARGET_H), Image.LANCZOS)
 
-out.save('figures/davian-logo.png', dpi=(300, 300))
+out.save('assets/davian-logo.png', dpi=(300, 300))
 print(f"Saved  {out.size[0]}×{out.size[1]}  (gap row={gap_row})")
