@@ -51,16 +51,16 @@
 \setlength{\parindent}{0pt}
 \setlength{\parskip}{0.6em}
 
-%% ---- section headings: XCharter serif, accent color, numbered ----
+%% ---- section headings: Montserrat, accent color, numbered ----
 \RequirePackage{titlesec}
 \titleformat{\section}
-  {\rmfamily\large\bfseries\color{kaistbluedark}}{\thesection.}{0.6em}{}
+  {\sffamily\large\bfseries\color{kaistbluedark}}{\thesection.}{0.6em}{}
 \titleformat{\subsection}
-  {\rmfamily\normalsize\bfseries\color{kaistbluedark}}{\thesubsection.}{0.5em}{}
+  {\sffamily\normalsize\bfseries\color{kaistbluedark}}{\thesubsection.}{0.5em}{}
 \titleformat{\subsubsection}
-  {\rmfamily\normalsize\bfseries}{\thesubsubsection.}{0.5em}{}
+  {\sffamily\normalsize\bfseries}{\thesubsubsection.}{0.5em}{}
 \titleformat{\paragraph}[runin]
-  {\rmfamily\bfseries}{}{0em}{}[.]
+  {\sffamily\bfseries}{}{0em}{}[.]
 \titlespacing*{\section}{0pt}{2.4ex plus .6ex minus .2ex}{1.2ex plus .2ex}
 \titlespacing*{\subsection}{0pt}{2.0ex plus .5ex minus .2ex}{0.8ex plus .2ex}
 \titlespacing*{\subsubsection}{0pt}{1.6ex plus .4ex minus .2ex}{0.6ex plus .2ex}
