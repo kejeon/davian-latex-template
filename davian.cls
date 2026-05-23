@@ -54,7 +54,7 @@
 %% ---- section headings: Montserrat, accent color, numbered ----
 \RequirePackage{titlesec}
 \titleformat{\section}
-  {\sffamily\large\bfseries\color{kaistblue}}{\thesection.}{0.6em}{}
+  {\sffamily\large\bfseries\color{kaistbluedark}}{\thesection.}{0.6em}{}
 \titleformat{\subsection}
   {\sffamily\normalsize\bfseries\color{kaistbluedark}}{\thesubsection.}{0.5em}{}
 \titleformat{\subsubsection}
@@ -79,11 +79,11 @@
 }
 \newcommand{\davianlogo}{%
   \IfFileExists{figures/davian-logo.pdf}
-    {\includegraphics[height=0.40in]{figures/davian-logo.pdf}}%
+    {\includegraphics[height=0.38in]{figures/davian-logo.pdf}}%
     {\IfFileExists{figures/davian-logo.png}
-      {\includegraphics[height=0.40in]{figures/davian-logo.png}}%
+      {\includegraphics[height=0.38in]{figures/davian-logo.png}}%
       {\IfFileExists{ref/final_logo.pdf}
-        {\includegraphics[page=3,trim={5pt 0pt 5pt 115pt},clip,height=0.40in]{ref/final_logo.pdf}}%
+        {\includegraphics[page=3,trim={5pt 0pt 5pt 115pt},clip,height=0.38in]{ref/final_logo.pdf}}%
         {\sffamily\bfseries\large\color{kaistbluedark}DAVIAN}}}%
 }
 %% kept for backward compat
@@ -141,17 +141,17 @@
 \renewcommand{\maketitle}{%
   \thispagestyle{davianfirst}%
   \begin{flushleft}
-    {\sffamily\bfseries\fontsize{19}{23}\selectfont\color{kaistbluedark}\@title\par}
-    \vskip 0.35em
+    {\sffamily\bfseries\fontsize{19}{23}\selectfont\color{kaistblue}\@title\par}
+    \vskip 0.25em
     {\normalsize\bfseries\raggedright\@authors\par}
-    \vskip 0.12em
+    \vskip 0.08em
     {\small\raggedright\@affiliations\par}
     \ifx\@correspondence\empty\else
-      \vskip 0.1em{\normalsize\@correspondence\par}\fi
+      \vskip 0.05em{\normalsize\@correspondence\par}\fi
     \ifx\@contributions\empty\else
-      \vskip 0.1em{\small\color{black!70}\@contributions\par}\fi
+      \vskip 0.05em{\footnotesize\color{black!70}\@contributions\par}\fi
   \end{flushleft}
-  \vskip 0.5em
+  \vskip 0.4em
 }
 
 %% ---- keywords (call inside abstract environment) ----
