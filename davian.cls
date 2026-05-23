@@ -79,11 +79,11 @@
 }
 \newcommand{\davianlogo}{%
   \IfFileExists{figures/davian-logo.pdf}
-    {\includegraphics[height=0.38in]{figures/davian-logo.pdf}}%
+    {\includegraphics[height=0.35in]{figures/davian-logo.pdf}}%
     {\IfFileExists{figures/davian-logo.png}
-      {\includegraphics[height=0.38in]{figures/davian-logo.png}}%
+      {\includegraphics[height=0.35in]{figures/davian-logo.png}}%
       {\IfFileExists{ref/final_logo.pdf}
-        {\includegraphics[page=3,trim={5pt 0pt 5pt 115pt},clip,height=0.38in]{ref/final_logo.pdf}}%
+        {\includegraphics[page=3,trim={5pt 0pt 5pt 115pt},clip,height=0.35in]{ref/final_logo.pdf}}%
         {\sffamily\bfseries\large\color{kaistbluedark}DAVIAN}}}%
 }
 %% kept for backward compat
@@ -141,7 +141,7 @@
 \renewcommand{\maketitle}{%
   \thispagestyle{davianfirst}%
   \begin{flushleft}
-    {\sffamily\bfseries\fontsize{19}{23}\selectfont\color{kaistblue}\@title\par}
+    {\sffamily\bfseries\fontsize{19}{23}\selectfont\color{kaistbluedark}\@title\par}
     \vskip 0.25em
     {\normalsize\bfseries\raggedright\@authors\par}
     \vskip 0.08em
