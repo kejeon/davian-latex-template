@@ -156,7 +156,7 @@
     \ifx\@contributions\empty\else
       \vskip 0em{\footnotesize\color{black!70}\@contributions\par}\fi
   \end{flushleft}
-  \vskip 1em
+  \vskip 0.8em
 }
 
 %% ---- keywords (call inside abstract environment) ----
