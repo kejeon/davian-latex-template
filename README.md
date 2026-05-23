@@ -36,6 +36,7 @@ sections/
   02_method.tex
   03_experiments.tex
   04_conclusion.tex
+  A_appendix.tex      # \appendix — sections renumber to A, B, ...
 
 figs/                 # paper figures (PDF/PNG) — \includegraphics{figs/...}
 tbls/                 # table images/PDFs    — \includegraphics{tbls/...}
@@ -75,6 +76,8 @@ should be anchored.
 - `\affmark{...}` renders a superscript marker — use it both on author names
   and in the affiliation list to link them.
 - `\contributions` and `\correspondence` are optional; omit them if unused.
+- `\date{...}` is optional too (off by default) — set `\date{\today}` or
+  `\date{Preprint. May 2026}` to show a date line at the foot of the title block.
 - `\email{addr}` prints an "E-mail:" label, then the address in monospace,
   hyperlinked via `mailto:`.
 - Defaults point to DAVIAN Lab, KAIST AI, so the template is usable as-is.

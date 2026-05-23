@@ -87,8 +87,6 @@
       {\includegraphics[height=0.40in]{assets/davian-logo.png}}%
       {\sffamily\bfseries\large\color{kaistbluedark}DAVIAN}}%
 }
-%% kept for backward compat
-\newcommand{\headerlogo}{\kaistailogo}
 
 %% ---- running header / footer (thin KAIST-blue rules) ----
 \RequirePackage{fancyhdr}
@@ -131,6 +129,9 @@
 \newcommand{\contributions}[1]{\renewcommand{\@contributions}{#1}}
 \newcommand{\@correspondence}{}
 \newcommand{\correspondence}[1]{\renewcommand{\@correspondence}{#1}}
+%% Optional date line. Off by default (article preloads \date{\today}, which
+%% we clear here); set \date{\today} or \date{Preprint. May 2026} to show it.
+\date{}
 
 %% superscript affiliation marker
 \newcommand{\affmark}[1]{\textsuperscript{#1}}
@@ -157,6 +158,8 @@
       \vskip 0.25em{\small\@correspondence\par}\fi
     \ifx\@contributions\empty\else
       \vskip 0.25em{\footnotesize\color{black!70}\@contributions\par}\fi
+    \ifx\@date\empty\else
+      \vskip 0.25em{\footnotesize\color{black!55}\@date\par}\fi
   \end{flushleft}
   \vskip 0.8em
 }
