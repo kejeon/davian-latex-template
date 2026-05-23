@@ -147,16 +147,16 @@
   \thispagestyle{davianfirst}%
   \begin{flushleft}
     {\sffamily\bfseries\fontsize{19}{23}\selectfont\color{kaistbluedark}\@title\par}
-    \vskip 1.0em
+    \vskip 1em
     {\normalsize\bfseries\raggedright\@authors\par}
-    \vskip 0.08em
+    \vskip 0em
     {\small\raggedright\@affiliations\par}
     \ifx\@correspondence\empty\else
-      \vskip 0.05em{\small\@correspondence\par}\fi
+      \vskip 0em{\small\@correspondence\par}\fi
     \ifx\@contributions\empty\else
-      \vskip 0.05em{\footnotesize\color{black!70}\@contributions\par}\fi
+      \vskip 0em{\footnotesize\color{black!70}\@contributions\par}\fi
   \end{flushleft}
-  \vskip 0.4em
+  \vskip 1em
 }
 
 %% ---- keywords (call inside abstract environment) ----
