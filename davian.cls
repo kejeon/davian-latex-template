@@ -138,7 +138,7 @@
 %% zi4 is scaled=0.90, so fontsize{10} renders at 9pt visual = \small serif.
 \AtBeginDocument{%
   \newcommand{\email}[1]{%
-    \href{mailto:#1}{{\fontfamily{zi4}\fontsize{10}{12}\selectfont #1}}%
+    E-mail: \href{mailto:#1}{{\fontfamily{zi4}\fontsize{10}{12}\selectfont #1}}%
   }%
 }
 
