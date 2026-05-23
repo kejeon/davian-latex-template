@@ -19,5 +19,8 @@ build/
 !tbls/*.pdf
 !assets/*.pdf
 
+# Local docs / design notes (not pushed)
+docs/
+
 # OS metadata
 .DS_Store

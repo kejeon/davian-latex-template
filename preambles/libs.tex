@@ -1,9 +1,25 @@
 %% libs.tex — document-level packages.
-%% davian.cls already loads the essentials (fonts, math, graphicx, booktabs,
-%% tcolorbox, hyperref, cleveref, natbib). Add only what THIS paper needs here.
+%% davian.cls already loads: amsmath, amssymb, mathtools, graphicx, booktabs,
+%% multirow, array, caption, tcolorbox, enumitem, hyperref, cleveref, natbib,
+%% titlesec, fancyhdr, microtype. Add only what THIS paper needs below.
 
-\usepackage{tikz}              % used by the placeholder figure; remove if unused
-\usepackage{lipsum}            % filler text for the demo; remove in real papers
+%% --- commonly-used additions (almost every paper wants these) ---
+\usepackage{amsfonts}          % extra math alphabets (\mathbb etc.)
+\usepackage{dsfont}            % \mathds{1} indicator function
+\usepackage{siunitx}           % \num{}, \SI{}{} — number & unit formatting
+\usepackage{algorithm}         % float wrapper for pseudocode
+\usepackage{algorithmic}       % pseudocode body
+\usepackage{ragged2e}          % \RaggedRight, \Centering, ...
+\usepackage{subcaption}        % subfigures / subtables
+\usepackage{wrapfig}           % text-wrapped figures and tables
+
+%% --- demo-only (remove in real papers) ---
+\usepackage{tikz}              % used by the placeholder figure
+\usepackage{lipsum}            % filler text
 
 %% Resolve graphics by directory so \includegraphics needs no path prefix.
 \graphicspath{{figs/}{tbls/}{assets/}}
+\DeclareGraphicsExtensions{.pdf,.png,.jpeg,.jpg}
+
+%% Note: \usepackage[hyphens]{url} from the reference is omitted — the class's
+%% hyperref already loads url; re-loading it here would cause an option clash.
