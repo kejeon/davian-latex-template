@@ -131,6 +131,12 @@
 %% superscript affiliation marker
 \newcommand{\affmark}[1]{\textsuperscript{#1}}
 
+%% email helper: monospace + mailto hyperlink, size-compensated for scaled=0.90 Inconsolata
+%% (must be used after hyperref is loaded, so defined late but usable in \correspondence{})
+\AtBeginDocument{%
+  \newcommand{\email}[1]{\href{mailto:#1}{\texttt{#1}}}%
+}
+
 %% ---- title rendering (left aligned) ----
 \renewcommand{\maketitle}{%
   \thispagestyle{davianfirst}%
@@ -141,7 +147,7 @@
     \vskip 0.12em
     {\small\raggedright\@affiliations\par}
     \ifx\@correspondence\empty\else
-      \vskip 0.1em{\small\@correspondence\par}\fi
+      \vskip 0.1em{\normalsize\@correspondence\par}\fi
     \ifx\@contributions\empty\else
       \vskip 0.1em{\small\color{black!70}\@contributions\par}\fi
   \end{flushleft}
