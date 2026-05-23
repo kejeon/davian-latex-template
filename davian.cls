@@ -134,9 +134,12 @@
 %% superscript affiliation marker
 \newcommand{\affmark}[1]{\textsuperscript{#1}}
 
-%% email helper: italic serif + mailto hyperlink
+%% email helper: Inconsolata via \fontfamily (not \texttt) + mailto hyperlink.
+%% zi4 is scaled=0.90, so fontsize{10} renders at 9pt visual = \small serif.
 \AtBeginDocument{%
-  \newcommand{\email}[1]{\href{mailto:#1}{\textit{#1}}}%
+  \newcommand{\email}[1]{%
+    \href{mailto:#1}{{\fontfamily{zi4}\fontsize{10}{12}\selectfont #1}}%
+  }%
 }
 
 %% ---- title rendering (left aligned) ----
@@ -144,7 +147,7 @@
   \thispagestyle{davianfirst}%
   \begin{flushleft}
     {\sffamily\bfseries\fontsize{19}{23}\selectfont\color{kaistbluedark}\@title\par}
-    \vskip 0.25em
+    \vskip 1.0em
     {\normalsize\bfseries\raggedright\@authors\par}
     \vskip 0.08em
     {\small\raggedright\@affiliations\par}
